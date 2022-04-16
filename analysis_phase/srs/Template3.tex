@@ -1,0 +1,344 @@
+\documentclass[english,openany,12pt,a4paper,dvipsnames]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+%\usepackage[semibold]{sourcesanspro}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{color}
+\definecolor{Valentia}{RGB}{233,78,82}
+\definecolor{Titleblue}{RGB}{114, 146, 162}
+\usepackage{mdframed}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{scrextend}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[absolute]{textpos} 
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{hyperref} 
+\usepackage{titlesec}
+\usepackage{blindtext}
+\usepackage{cascadia-code}
+\usepackage[Sonny]{fncychap}
+\usepackage{xcolor}
+\pagestyle{fancy}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=cyan
+}
+\urlstyle{same}
+
+\fancyhf{}
+\fancyheadoffset{0.005\textwidth}
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\nouppercase\leftmark}
+\fancyhead[RO]{\thepage}
+\fancyhead[LO]{\nouppercase\rightmark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\thesection}{%
+  \ifnum\c@chapter<1 \@arabic\c@section
+  \else \thechapter.\@arabic\c@section
+  \fi
+}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+
+\newgeometry{left=2.5cm, bottom=3cm, top=2cm, right=2.5cm}
+
+\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (73.6mm, -124.25mm){\includegraphics{IIITR-Logo-Watermark.png}};
+
+{\fontfamily{phv}\fontseries{mc}\selectfont
+
+\centering
+\color{Valentia}
+\fontsize{22}{13}\selectfont
+\textbf{INDIAN INSTITUTE OF INFORMATION TECHNOLOGY\\}
+\vspace{5mm}
+\textbf{RANCHI\\}
+
+\normalsize
+\color{black}
+
+
+% \bigskip
+% \textbf{Software Requirements and Specifications}
+
+
+\color{Titleblue}
+\fontsize{18.5}{20.4}\selectfont
+\vspace{3cm}
+\textbf{Software Requirements Specifications\\ for \\}
+\fontsize{20}{20.4}\selectfont
+\vspace*{5mm}
+\Huge\textbf{{Transport Company Software}}
+
+%*****************************************************
+
+\vspace{4cm}
+\color{black}
+\fontsize{14}{18}\selectfont
+\textnormal{Submitted towards:\\}
+\fontsize{16}{18}\selectfont
+\textbf{Dr.\ Jaydeep Pati}
+
+\bigskip
+\fontsize{13}{15.6}\selectfont
+\textbf{Department of Computer Science and Engineering\\
+Subject Code: CS332\\
+Software Engineering Lab
+}
+
+\vspace{4.5cm}
+\fontsize{13}{15.6}\selectfont
+\textbf{Prepared by:}\\
+\bigskip
+\fontsize{10}{12}\selectfont
+\vspace{1.5mm}
+\fontsize{14pt}{20.4}\selectfont
+\begin{tabular}{p{14cm}l}
+\textbf{Ashish Manoj Chourasia} & \textbf{2019UGCS033R} \\
+\textbf{Manas Ranjan Parida} & \textbf{2019UGCS042R} \\
+\textbf{Pallav Garg} & \textbf{2019UGCS050R} \\
+\textbf{Savita Nandan} & \textbf{2019UGCS055R}
+\end{tabular} 
+}
+\end{titlepage}
+\setlength{\parindent}{3em}
+% specifying section and subsection formats
+\titleformat*{\section}{\LARGE\bfseries\scshape\color{NavyBlue}}
+\titleformat*{\subsection}{\normalfont\large\color{SkyBlue}}
+
+\tableofcontents
+\clearpage
+\markboth{}{}
+\newpage
+
+
+\section{Introduction}
+        The introduction of the software requirement specification (SRS) provides an overview of the entire SRS which follows. The aim of this document is to gather, analyze and give in-depth insight of transport company computerisation software by defining the problem statement in detail. The detailed requirements of this software are provided in this document.
+\subsection{Purpose}
+        The purpose of this document is to present a detailed description of the transport computerisation system. It will explain the purpose and features of the software in the best possible way which would help to manage the administrative work of a transport company. This document is used to convey information about functional and non functional requirements proposed by the clients. It also explains system constraints and its interaction with various external entities. This document defines how the client, team and audience see the product and its functionality. It also helps any designer and developer to assist in software delivery lifecycle (SDLC) processes
+
+\subsection{Scope}
+        The purpose of this product is to computerise the major processes of a Transport Company, so that the administrative works can be done in a more efficient, faster and elegant manner. The software would help to keep all data related to consignments, trucks and employees under a single shade and also assist to allot trucks and calculate waiting time of consignments among other functionalities. 
+
+\subsection{References}
+        \begin{enumerate}
+          \item Rajib Mall "Fundamentals of Software Engineering"
+          \item IEEE Sofware Engineering Standards Committee "IEEE Recommended Practice For Software Requirements Specifications
+          \item \url{https://en.wikipedia.org/wiki/SRS}
+          \item \url{https://www.geeksforgeeks.org/how-to-write-a-good-srs-for-your-project}
+        \end{enumerate}
+
+\subsection{Definitions, Acronyms, Abbreviations }
+
+        \begin{itemize}
+          \item GUI - Graphical User Interface
+          \item TCCS - Transport Company Computerisation Software
+          \item SRS - Software Requirement Specification
+          \item Consignment - The customer orders a parcel to be sent
+          \item Database - It refers to data stored in organised manner for consignment, truck, employees and branch office
+          \item Manager - A person who can order trucks, add employees, change rates etc
+          \item Customer - Refers the person who gives the order of consignment to be sent
+          \item Employee - Refers the person at office who enter the details of a consignment whenever it arrives the office
+        \end{itemize}
+% \clearpage
+\markboth{}{}
+
+\section{Overall Description}
+        \subsection{Product Functions}
+        This software will help to make the management and administrative processes of a Transport
+        company faster and efficient. The functionalities of the software are as follows:
+                \begin{itemize}
+                  \item The software will be able to store the details of consignment, compute the transport charge
+                and issue bill for the consignment
+                  \item It will be able to automatically allot the next available truck as the consignment for a
+                particular destination exceeds a certain limit.
+                  \item It will be able to store the truck details and show the status of trucks as well as consignments
+                at a given time
+                  \item It will also be able to compute the average waiting time for consignments and the idle time
+                of a truck.
+                  \item Passwords and user ID will be used to protect the accounts of employees and manager.
+                \end{itemize}
+                \markboth{}{}
+        \subsection{Operating Environment}
+        The software is a Java application that also makes use of a database. It must be designed to work
+        flawlessly and without issues on a Linux (Ubuntu or CentOS) and Windows computer having
+        support for Java applications (like, JDK installed) and the database (like Oracle DBMS, MySQL
+        etc.) to be used.
+        \subsection{Design and Implementation Constraints}
+        The major constraints in the development of the software:
+                \begin{itemize}
+                  \item Computers at various centers must be able to communicate in real time. For that internet
+                connection is required.
+                  \item Limited amount of memory can cause issues if the database is too large
+                  \item The software will use password for login. Security of the software depends on the password
+                protection and also on the network communication.
+                  \item The algorithm followed will not be an optimized one, as an optimized algorithm will be too
+                much computationally heavy. However, it will give fairly good results in most cases.
+                  \item Good form of integration between the database and the java application
+                \end{itemize}
+
+        \subsection{Assumptions and Dependencies}
+        The software will be made with the following assumptions:
+                \begin{itemize}
+                  \item The users have computers with Linux installed.
+                  \item Internet connection is well available in all the branches and the computers there can
+                communicate with each other in real time
+                  \item Each user must remember his password and login ID, failing which, he cannot login into the
+                system. The manager will be the only one to have the right to reset password.
+                  \item User should not tamper/experiment with the source code/executable file of the software.
+                  \item The user should have a good knowledge about the basic attributes of an object and fill in the
+                details of the objects and employee properly.
+                  \item The centers of the Transport Company are well distributed in the map and each center
+                performs well in terms of consignment handling (that is there is no center which only
+                receives goods, but does not send any or vice versa).
+                \end{itemize}
+        The main dependencies of the working and performance of the software are:
+                \begin{itemize}
+                  \item  The internet connection should be good enough for the computers to communicate with each
+                other and send data to the central machine of the manager.
+                  \item The Java VM and all other platforms should be functioning properly.
+                  \item All the tools on which the software is dependent must be working properly
+                  \item The software will also depend on the database and the interaction of Java application with
+                the database.
+                 \end{itemize}
+
+% \clearpage
+\markboth{}{}
+\section{External Interface Requirements}
+        \subsection{User Interface}
+        The user interface of the software will be easy to use and interactive. Each person will have to login
+        using his own login id and password. Only after that, he will be able to make any changes to the
+        database or have his/her queries answered.
+        \begin{enumerate}
+          \item Employees : They will be given the access to do the following jobs:
+                \begin{enumerate}
+             \item Enter details of a consignment like type, volume, details of sender and receiver, like
+                name, address and a Government ID.
+             \item They will be able to see the truck details present at their center.
+             \item They would be able to view the allotment of the truck and take a printout of the details of
+                consignment number, volume, sender’s name and address and receiver’s name and
+                address to be forwarded along with the truck.
+             \end{enumerate}
+          \item Manager : Manager will be given the admin rights. He:
+                  \begin{enumerate}
+             \item Can do all the tasks that an employee can do
+             \item Can view status of all consignments and truck status at a given time.
+             \item Can view the corresponding revenue generated in a particular center as well as over all centers.
+             \item Can see the waiting time of a consignment.
+             \item Can appoint new employees and add them to employees database or remove any employee from the company as well    as from the database.
+             \item He will give an employee an username and a password and he can also reset the
+        password of an employee.
+             \end{enumerate}
+        \end{enumerate}
+        \subsection{Hardware Interface}
+                The storage of the data on the physical drive will depend on the tools used for the development of
+                software. The software will run properly on a computer having support for Java applications and
+                also the database to be used. The computer should have a minimum of 2GB RAM (preferably 4GB
+                or more) and 20GB free space (preferably 50GB or more). More memory may be required if the
+                database is too large.
+        \subsection{Software Interface}
+                Java will be used in the development of the software. A database will also be required to store the
+                employee information, consignment details and truck information in a logical manner. Java
+                applications must be able to communicate with the database properly. All major internal
+                dependencies should be taken into account. Internet connection is required for the communication of
+                computers at different branches
+        \subsection{Communication Interface}
+                Communication plays a major role in the software performance. All information regarding the
+                trucks and consignments are sent through networks. So the computers at different and the central
+                machine must be able to communicate securely and quickly over the network. The software must
+                take care of the communication protocol to be used or the encryption to be followed to ensure secure
+                communication among different branches.
+
+% \clearpage
+\markboth{}{}
+\section{System Features}
+This section describes the major functionalities of the software.
+        \subsection{User registration and Login}
+        Functional requirements:
+            \begin{enumerate}
+              \item User must be employed by the manager who will provide them an user ID and password.
+              \item Employees must be able to login only with that user ID and password.
+              \item In case they forget their password, the manager himself must reset it.
+              \item A manager will be able to add new employees or remove employees.
+            \end{enumerate}
+
+        \subsection{Truck Status Checking}
+        Functional requirements:
+            \begin{enumerate}
+              \item Addition of new trucks and rejection of old trucks can be done only by manager.
+              \item The details of the truck will be entered by the employees at different branches.
+              \item The administrator must be able to get the real time status of a truck as well as a list of all the
+                    trucks.In case they forget their password, the manager himself must reset it.
+              \item The employees must be able to see the truck status at their branch.
+               \item The truck is identified by its unique number.
+               \item Besides location, it has attributes like source, destination, driver, details of consignment and
+                    working and idle time.
+            \end{enumerate}
+    
+        \subsection{Consignment details}
+        Functional requirements:
+            \begin{enumerate}
+              \item The details of the consignment will be entered by employees at different branches.
+              \item The software must have/store all details of consignment: volume, sender and sender’s
+                    address receiver and receiver’s address and the truck it is being carried.
+              \item It must be able to allot a new truck as the amount of consignments for a certain destination
+                    increases a certain amount.
+              \item The software must be able to check the real time status of the assignment
+               \item It must be able to calculate the waiting time of a consignment, so that the manager is able to
+                        take useful decisions from it.
+            \end{enumerate}
+    
+        \subsection{Account details}
+        Functional requirements:
+            \begin{enumerate}
+              \item Manager must be able to see the profit/revenue collected from each branch.
+              \item The manager must be able to calculate the waiting time of consignments and idle time of
+                    trucks to determine his business strategy
+              \item It must also be able to calculate the revenue left after buying a certain number of trucks, so
+                    that the manager is able to decide whether to buy trucks or not
+            \end{enumerate}
+% \clearpage
+\markboth{}{}
+
+\section{Other Nonfunctional Requirements}
+        \subsection{Performance Requirements}
+                Software must perform smoothly and efficiently. Performance of the software will greatly depend
+                on the speed of the internet, ease and speed of accessing data from the database and the speed of
+                communication among different computers. The software uses a few computations that are not
+                computationally heavy but are very much dependent on the database and processing and data
+                handling power of the computer
+        \subsection{Software Quality Attributes}
+                The software must be easy to use and should run without issues in Linux (Ubuntu or CentOS). It
+                should be correct and easily maintainable. The system developed by the software should be flexible,
+                that is there must be provisions for different changes (like expansion) in the Transport Company.
+                The software should also be reliable and reusable for additional purposes. The software must also
+                ensure the security and privacy of the Transport Company.
+% \clearpage
+\markboth{}{}
+
+\section{Other requirements}
+        The use of the software will be guided by the rights an user is provided.No legal issues must be
+        there with the use of the software. However, the tools used here have some specific licenses. The
+        license terms must be followed to avoid any legal issues in the future. A user manual will also assist
+        the software so that users can get the best out of this software.
+
+
+
+\end{document}
